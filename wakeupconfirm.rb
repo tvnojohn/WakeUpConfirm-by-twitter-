@@ -41,7 +41,7 @@ end
 $client.user_timeline(myid, { count: 1 }).each do |tweet|
 	tweetime = tweet_id2time(tweet.id)
     if tweetime > Time.now - 7200 #before 2hour
-		puts "起きてます"
+        puts ((Time.now - tweetime)/60).to_i.to_s + "分前は起きてます．\n最後のtweetは\n'" + tweet.text + "'"
 	else
 		message =
 				gmail.generate_message do
